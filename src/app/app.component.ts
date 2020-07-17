@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ChartsService } from './services/charts.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'clarity-exp';
+  constructor(public chartsService: ChartsService){}
+  
 }

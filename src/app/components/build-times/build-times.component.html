@@ -1,0 +1,43 @@
+<clr-datagrid
+  [(clrDgSelected)]="selected"
+  (clrDgSelectedChange)="selectionChanged($event)"
+>
+  <clr-dg-column>API Name</clr-dg-column>
+  <clr-dg-column
+    *ngFor="let buildNumber of this.uniqueBuildNumbers"
+    [clrDgField]="'this.data[apiName][buildNumber].avg'"
+    [clrDgColType]="'number'"
+  >
+    {{ buildNumber }}
+  </clr-dg-column>
+
+  <clr-dg-row
+    *clrDgItems="let apiName of this.uniqueApis"
+    [clrDgItem]="{ data: this.data[apiName], label: apiName }"
+    [(clrDgSelected)]="{ data: this.data[apiName], label: apiName }.selected"
+  >
+    <clr-dg-cell>{{ apiName }}</clr-dg-cell>
+    <clr-dg-cell *ngFor="let buildNumber of this.uniqueBuildNumbers">
+      <div
+        *ngIf="this.data[apiName][buildNumber]"
+        [ngClass]="{
+          warning: this.data[apiName][buildNumber].avg > 35000,
+          success: this.data[apiName][buildNumber].avg < 12000
+        }"
+      >
+        {{ this.data[apiName][buildNumber].avg }}
+      </div>
+      <p *ngIf="!this.data[apiName][buildNumber]">N/A</p>
+    </clr-dg-cell>
+  </clr-dg-row>
+
+  <clr-dg-footer>
+    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+      <clr-dg-page-size [clrPageSizeOptions]="[10, 20, 50, 100]"
+        >APIs per page</clr-dg-page-size
+      >
+      {{ pagination.firstItem + 1 }} - {{ pagination.lastItem + 1 }} of
+      {{ pagination.totalItems }} APIs
+    </clr-dg-pagination>
+  </clr-dg-footer>
+</clr-datagrid>

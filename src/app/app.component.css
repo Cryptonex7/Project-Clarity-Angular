@@ -1,0 +1,12 @@
+.logo {
+    width: unset !important;
+    margin-top: 10px;
+}
+
+.appbar {
+    padding: 8px;
+}
+
+.sidebar-wrapper {
+    width: 250px;
+}
