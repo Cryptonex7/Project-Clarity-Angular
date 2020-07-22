@@ -27,7 +27,7 @@
       >
         {{ this.data[apiName][buildNumber].avg }}
       </div>
-      <p *ngIf="!this.data[apiName][buildNumber]">N/A</p>
+      <div *ngIf="!this.data[apiName][buildNumber]">N/A</div>
     </clr-dg-cell>
   </clr-dg-row>
 

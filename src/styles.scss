@@ -1,0 +1,60 @@
+/* You can add global styles to this file, and also import other style files */
+// @import './_dark-theme.css';
+
+@import '~@clr/ui/src/utils/variables/variables.color';
+@import '~@clr/ui/src/utils/variables/variables.global';
+
+.flex-row {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.flex-just-end {
+    justify-content: flex-end;
+}
+
+.flex-just-sb {
+    justify-content: space-between;
+}
+
+.flex-col {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+.flex-1 {
+    flex: 1;
+}
+.flex-2 {
+    flex: 2;
+}
+.flex-3 {
+    flex: 3;
+}
+.flex-4 {
+    flex: 4;
+}
+.flex-5 {
+    flex: 5;
+}
+.flex-6 {
+    flex: 6;
+}
+.flex-7 {
+    flex: 7;
+}
+.flex-8 {
+    flex: 8;
+}
+.flex-9 {
+    flex: 9;
+}
+.flex-10 {
+    flex: 10;
+}

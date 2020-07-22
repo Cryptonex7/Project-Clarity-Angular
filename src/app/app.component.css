@@ -10,3 +10,10 @@
 .sidebar-wrapper {
     width: 250px;
 }
+
+.placeholder {
+    height: 400px;
+    width: 800px;
+    background-color: darkgray;
+    margin: 4px;
+}

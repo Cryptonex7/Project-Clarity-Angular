@@ -1,7 +1,7 @@
-<div class="myChart" [ngStyle]="{ height: height, width: width }">
+<div #chartContainer class="myChart" [ngStyle]="{ height: height, width: width }">
   <canvas
-    
     height="{{ height }}"
+    style="width: 100%;"
     baseChart
     [datasets]="lineChartData"
     [labels]="lineChartLabels"

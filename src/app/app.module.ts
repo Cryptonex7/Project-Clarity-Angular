@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { ClarityModule, ClrIconModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsModule } from 'ng2-charts';
+import { runCssVarsPolyfill } from '@clr/core';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +13,9 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { GlobalAlertComponent } from './layout/global-alert/global-alert.component';
 import { BuildTimeLineChartComponent } from './components/build-time-line-chart/build-time-line-chart.component';
+import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 
+runCssVarsPolyfill();
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +24,7 @@ import { BuildTimeLineChartComponent } from './components/build-time-line-chart/
     NavbarComponent,
     GlobalAlertComponent,
     BuildTimeLineChartComponent,
+    BarChartComponent,
   ],
   imports: [
     BrowserModule,

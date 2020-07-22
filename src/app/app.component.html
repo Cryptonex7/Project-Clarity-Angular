@@ -4,9 +4,17 @@
   <div class="content-container">
     <app-sidebar class="sidebar-wrapper"></app-sidebar>
     <div class="content-area">
-      <div >
+      <div class="flex-row fullWidth flex-just-sb">
+        <div class="placeholder flex-1"></div>
+        <div class="placeholder flex-1"></div>
+        <div class="flex-row flex-2">
+          <app-bar-chart style="flex: 1;" [height]="300"></app-bar-chart>
+          <app-build-time-line-chart
+            style="flex: 1;"
+            [height]="300"
+          ></app-build-time-line-chart>
+        </div>
       </div>
-      <app-build-time-line-chart></app-build-time-line-chart>
       <app-build-times></app-build-times>
     </div>
   </div>

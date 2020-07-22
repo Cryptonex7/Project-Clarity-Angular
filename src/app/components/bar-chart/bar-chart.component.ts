@@ -1,20 +1,20 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ChartsService } from 'src/app/services/charts.service';
 import { ChartDataSets, ChartOptions } from 'chart.js';
-import { Label, Colors, Color } from 'ng2-charts';
+import { Label, Colors } from 'ng2-charts';
 import { ChartDataModel } from '../../models/chart-data.model';
 
 @Component({
-  selector: 'app-build-time-line-chart',
-  templateUrl: './build-time-line-chart.component.html',
-  styleUrls: ['./build-time-line-chart.component.css'],
+  selector: 'app-bar-chart',
+  templateUrl: './bar-chart.component.html',
+  styleUrls: ['./bar-chart.component.css'],
 })
-export class BuildTimeLineChartComponent implements OnInit {
+export class BarChartComponent implements OnInit {
   @Input() width: number = 500;
   @Input() height: number | string = 400;
-  public lineChartData: ChartDataSets[] = [];
-  public lineChartLabels: Label[] = [];
-  public lineChartOptions: ChartOptions = {
+  public barChartData: ChartDataSets[] = [];
+  public barChartLabels: Label[] = [];
+  public barChartOptions: ChartOptions = {
     responsive: true,
     maintainAspectRatio: false,
     scales: {
@@ -25,24 +25,24 @@ export class BuildTimeLineChartComponent implements OnInit {
           },
         },
       ],
-      xAxes : [
+      xAxes: [
         {
-          ticks : {
-            display: false
-          }
-        }
-      ]
+          ticks: {
+            display: false,
+          },
+        },
+      ],
     },
   };
-  public lineChartColors: Color[] = [
+  public barChartColors: Colors[] = [
     {
       backgroundColor: 'rgba(0, 122, 251, 0.2)',
       borderColor: 'rgba(0, 122, 251, 1)',
     },
   ];
-  public lineChartLegend = true;
-  public lineChartType = 'line';
-  public lineChartPlugins = [];
+  public barChartLegend = true;
+  public barChartType = 'bar';
+  public barChartPlugins = [];
 
   data: ChartDataModel;
   constructor(public chartsService: ChartsService) {}
@@ -50,25 +50,24 @@ export class BuildTimeLineChartComponent implements OnInit {
   ngOnInit(): void {
     this.chartsService.chartData.subscribe((res: any[]) => {
       if (res.length === 0) {
-        this.lineChartData = [
+        this.barChartData = [
           {
             data: [],
             label: '',
-            lineTension: 0,
           },
         ];
-        this.lineChartLabels = [];
+        this.barChartLabels = [];
       } else {
-        this.lineChartData = res.map((api) => {
+        this.barChartData = res.map((api) => {
           return {
             data: Object.keys(api.data).map(
               (buildno: string) => api.data[buildno].avg
             ),
             label: api.label,
-            lineTension: 0,
+            barTension: 0,
           };
         });
-        this.lineChartLabels = Object.keys(res[0].data);
+        this.barChartLabels = Object.keys(res[0].data);
       }
     });
   }

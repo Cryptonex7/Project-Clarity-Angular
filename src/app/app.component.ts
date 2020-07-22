@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
-import { ChartsService } from './services/charts.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'clarity-exp';
-  constructor(public chartsService: ChartsService){}
-  
+
+  constructor() {}
+
+  ngOnInit() {}
 }
