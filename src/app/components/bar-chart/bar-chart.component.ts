@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ChartsService } from 'src/app/services/charts.service';
 import { ChartDataSets, ChartOptions } from 'chart.js';
-import { Label, Colors } from 'ng2-charts';
+import { Label, Color } from 'ng2-charts';
 import { ChartDataModel } from '../../models/chart-data.model';
 
 @Component({
@@ -17,6 +17,9 @@ export class BarChartComponent implements OnInit {
   public barChartOptions: ChartOptions = {
     responsive: true,
     maintainAspectRatio: false,
+    legend: {
+      position: "right"
+    },
     scales: {
       yAxes: [
         {
@@ -34,14 +37,14 @@ export class BarChartComponent implements OnInit {
       ],
     },
   };
-  public barChartColors: Colors[] = [
+  public barChartColors: Color[] = [
     {
       backgroundColor: 'rgba(0, 122, 251, 0.2)',
       borderColor: 'rgba(0, 122, 251, 1)',
     },
   ];
   public barChartLegend = true;
-  public barChartType = 'bar';
+  public barChartType = 'bar'; // bar
   public barChartPlugins = [];
 
   data: ChartDataModel;
@@ -54,6 +57,7 @@ export class BarChartComponent implements OnInit {
           {
             data: [],
             label: '',
+            lineTension: 0
           },
         ];
         this.barChartLabels = [];

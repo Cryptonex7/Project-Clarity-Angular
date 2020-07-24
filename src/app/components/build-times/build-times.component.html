@@ -17,12 +17,16 @@
     [(clrDgSelected)]="{ data: this.data[apiName], label: apiName }.selected"
   >
     <clr-dg-cell>{{ apiName }}</clr-dg-cell>
-    <clr-dg-cell *ngFor="let buildNumber of this.uniqueBuildNumbers">
+    <clr-dg-cell
+      *ngFor="let buildNumber of this.uniqueBuildNumbers; index as i"
+    >
       <div
         *ngIf="this.data[apiName][buildNumber]"
         [ngClass]="{
-          warning: this.data[apiName][buildNumber].avg > 35000,
-          success: this.data[apiName][buildNumber].avg < 12000
+          warning:
+            this.data[apiName][uniqueBuildNumbers[i - 1]] &&
+            this.data[apiName][uniqueBuildNumbers[i - 1]].avg <
+              this.data[apiName][uniqueBuildNumbers[i]].avg
         }"
       >
         {{ this.data[apiName][buildNumber].avg }}
@@ -30,6 +34,25 @@
       <div *ngIf="!this.data[apiName][buildNumber]">N/A</div>
     </clr-dg-cell>
   </clr-dg-row>
+
+  <clr-dg-detail *clrIfDetail="let detail">
+    <clr-dg-detail-header>API: <b>{{ detail.label }}</b></clr-dg-detail-header>
+    <clr-dg-detail-body>
+      <div class="flex-row flex-just-sb" style="width: 95%;">
+        <app-single-api-chart
+          style="flex: 3;"
+          [buildData]="detail.data"
+          [apiName]="detail.label"
+        ></app-single-api-chart>
+        <app-error-chart
+          style="flex: 2; height: 100%;"
+          [height]="400"
+          [buildData]="detail.data"
+          [apiName]="detail.label"
+        ></app-error-chart>
+      </div>
+    </clr-dg-detail-body>
+  </clr-dg-detail>
 
   <clr-dg-footer>
     <clr-dg-pagination #pagination [clrDgPageSize]="10">

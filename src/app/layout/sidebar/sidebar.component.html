@@ -26,22 +26,6 @@
         <li><a class="nav-link">Link 6</a></li>
       </ul>
     </section>
-    <form clrForm>
-      <clr-datalist-container>
-        <label>Job: </label>
-        <input
-          minlength="4"
-          name="Option"
-          required
-          clrDatalistInput
-          [disabled]="disabled"
-        />
-        <datalist>
-          <option *ngFor="let item of items" [value]="item"></option>
-        </datalist>
-        <clr-control-helper>Search for a Job to Display</clr-control-helper>
-        <clr-control-error>There was an error</clr-control-error>
-      </clr-datalist-container>
-    </form>
+    
   </section>
 </nav>

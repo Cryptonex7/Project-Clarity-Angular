@@ -3953,4 +3953,4 @@ const temp = [
 ];
 
 const throughput = 36.5;
-export const data = shuffle(temp);
+export const data = temp;

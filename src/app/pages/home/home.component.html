@@ -1,0 +1,20 @@
+<div class="flex-row fullWidth flex-just-sb">
+  <div class="placeholder-container flex-1 flex-col flex-just-sb">
+    <div class="card card-block clear-margin flex-row flex-just-sb">
+      <b><h3 class="card-title thoughput">Throughput:</h3></b>
+      <p class="card-text thoughput">
+        <b> 36.5 </b>
+      </p>
+    </div>
+    <div class="placeholder fullWidth flex-1"></div>
+  </div>
+  <div class="placeholder flex-1"></div>
+  <div class="flex-row flex-3">
+    <app-bar-chart style="flex: 1;" [height]="300"></app-bar-chart>
+    <app-build-time-line-chart
+      style="flex: 1;"
+      [height]="300"
+    ></app-build-time-line-chart>
+  </div>
+</div>
+<app-build-times></app-build-times>

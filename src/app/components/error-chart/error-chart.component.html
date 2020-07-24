@@ -1,7 +1,7 @@
 <div
   #chartContainer
   class="myChart"
-  [ngStyle]="{ 'maxHeight.px': height, 'width.px': width }"
+  [ngStyle]="{ 'height.px': height, 'maxHeight.px': height, 'width.px': width === null ? '90%' : width }"
 >
   <canvas
     height="{{ height }}"

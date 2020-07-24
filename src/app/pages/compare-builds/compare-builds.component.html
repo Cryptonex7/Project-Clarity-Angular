@@ -1,0 +1,40 @@
+<p>compare-builds works!</p>
+<form clrForm [formGroup]="apiName" class="clear-margin">
+  <clr-datalist-container class="clear-margin">
+    <label class="">Search for a API: </label>
+    <input formControlName="apiName" class="" name="apiName" clrDatalistInput />
+    <datalist class="">
+      <option *ngFor="let api of apis" [value]="api"></option>
+    </datalist>
+    <clr-control-error>There was an error</clr-control-error>
+  </clr-datalist-container>
+</form>
+<form clrForm [formGroup]="build1" class="clear-margin">
+  <clr-datalist-container class="clear-margin">
+    <label class="">Build 1</label>
+    <input formControlName="build1" class="" name="build1" clrDatalistInput />
+    <datalist class="">
+      <option *ngFor="let build of builds" [value]="build"></option>
+    </datalist>
+    <clr-control-error>There was an error</clr-control-error>
+  </clr-datalist-container>
+</form>
+<form clrForm [formGroup]="build2" class="clear-margin">
+  <clr-datalist-container class="clear-margin">
+    <label class="">Build 2</label>
+    <input formControlName="build2" class="" name="build2" clrDatalistInput />
+    <datalist class="">
+      <option *ngFor="let build of builds" [value]="build"></option>
+    </datalist>
+    <clr-control-error>There was an error</clr-control-error>
+  </clr-datalist-container>
+</form>
+<button class="btn btn-primary" type="submit" (click)="submit()">
+  Submit
+</button>
+<app-compare-chart
+  *ngIf="this.displayChart"
+  [apiName]="this.apiName.value.apiName"
+  [build1]="this.build1.value.build1"
+  [build2]="this.build2.value.build2"
+></app-compare-chart>

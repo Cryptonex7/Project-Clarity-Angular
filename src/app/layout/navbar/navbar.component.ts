@@ -6,11 +6,13 @@ const darkThemeStyleSheet = document.styleSheets[3];
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
   darkThemeIsActive = false;
-  
+  disabled = false;
+  items: string[] = ['Item1', 'Item2', 'Item3'];
+  vertical = '';
   constructor(){}
   
   ngOnInit() {

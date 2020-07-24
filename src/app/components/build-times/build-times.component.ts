@@ -43,6 +43,7 @@ export class BuildTimesComponent implements OnInit {
         avg: element.average,
         min: element.min,
         max: element.maximum,
+        error: element.errorsPerenctage
       };
     });
     this.uniqueBuildNumbers.sort().reverse();
